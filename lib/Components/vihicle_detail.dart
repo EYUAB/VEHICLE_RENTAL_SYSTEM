@@ -86,7 +86,7 @@ class _VehicleDetailState extends State<VehicleDetail> {
               InkWell(
                 onTap: () {},
                 child: ListTile(
-                leading: Icon(Icons.help,color: Colors.amber,),
+                leading: Icon(Icons.help,color: Colors.blue,),
                 title: Text('about'),
                 ),
               ),
@@ -96,19 +96,56 @@ class _VehicleDetailState extends State<VehicleDetail> {
         ),
      body: ListView(
       children: [
-        Container(
-          height: 300,
-          child: GridTile(
-            footer: Container(
-              color: Colors.white70,
-              child: ListTile(
-                leading: Text(widget.vehicleDetailName,style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold,color: Colors.black),),
-                title: Text("${widget.vehicleDetailPrice}",style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold,color: Colors.black),),
-                subtitle: Text(widget.vehicleDetailCurrency,style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold,color: Colors.black),),
+        Padding(
+          padding: EdgeInsets.all(8),
+          child: Container(
+            height: 300,
+            child: GridTile(
+              footer: Container(
+                color: Colors.white70,
+                child: ListTile(
+                  leading: Text(widget.vehicleDetailName,style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold,color: Colors.black),),
+                  title: Text("${widget.vehicleDetailPrice}",style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold,color: Colors.black),),
+                  subtitle: Text(widget.vehicleDetailCurrency,style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold,color: Colors.black),),
+                ),
               ),
-            ),
-            child: Image.asset(widget.vehicleDetailPicture,)),
+              child: Image.asset(widget.vehicleDetailPicture,),),
+          ),
         ),
+     ExpansionTile(
+      title: Text('Vehicel Detail',
+     style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold,color: Colors.black),
+     ),
+    leading: Icon(Icons.car_crash, color: Colors.blue,),
+    children: [
+ListTile(leading: Icon(
+  Icons.person_2,
+),
+title: Text("5 passanger"),
+),
+ListTile(leading: Icon(
+  Icons.person_2,
+),
+title: Text("1 luggage"),
+),
+ListTile(leading: Icon(
+  Icons.person_2,
+),
+title: Text("Manual Transmission"),
+),
+ListTile(leading: Icon(
+  Icons.person_2,
+),
+title: Text("5 doors"),
+),
+ListTile(leading: Icon(
+  Icons.person_2,
+),
+title: Text("Air conditioning"),
+),
+    ],
+     ),
+
       ],
      ),
       ),

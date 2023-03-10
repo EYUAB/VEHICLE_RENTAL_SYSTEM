@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:vehicle_rental_system/vehicle_detail.dart';
+import 'package:vehicle_rental_system/Components/vihicle_detail.dart';
 
 class AvailableVehicleLists extends StatefulWidget {
   const AvailableVehicleLists({super.key});
@@ -144,7 +142,7 @@ this.vehicleCurrency,
         child: Material(
   child: InkWell(
     onTap: (){
-      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>VehicleDetail(vehicleDetailName: vehicleName,vehicleDetailPrice: vehiclePrice,vehicleDetailCurrency: vehicleCurrency,vehicleDetailPicture: vehiclePicture,),),);
+      Navigator.of(context).push(MaterialPageRoute(builder: (context)=> VehicleDetail(vehicleDetailName: vehicleName,vehicleDetailPrice: vehiclePrice,vehicleDetailCurrency: vehicleCurrency,vehicleDetailPicture: vehiclePicture,),),);
     },
     child: GridTile(
       footer: Container(

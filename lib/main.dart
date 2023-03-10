@@ -1,7 +1,6 @@
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:vehicle_rental_system/Components/horizontalScrol.dart';
-
 import 'Components/vehicle_lists.dart';
 void main(List<String> args) {
   runApp(HomePage());
