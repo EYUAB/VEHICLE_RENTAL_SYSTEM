@@ -4,5 +4,9 @@ import 'package:vehicle_rental_system/Components/logIn.dart';
 
 void main(List<String> args) {
    WidgetsFlutterBinding.ensureInitialized();
-  runApp( LogIn());
+  runApp( MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: LogIn(),
+  ),
+  );
 }
