@@ -19,6 +19,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 24),
           child: Column(
@@ -27,7 +28,9 @@ class _RegistrationPageState extends State<RegistrationPage> {
             children: [
               Container(
                 height: 60,
-                child: Image.asset('Images/car_logo.png'),),
+                child: Hero(
+                  tag: Text('hero'),
+                  child: Image.asset('Images/car_logo.png')),),
                 SizedBox(height: 20,),
               TypewriterAnimatedTextKit(
               text: [

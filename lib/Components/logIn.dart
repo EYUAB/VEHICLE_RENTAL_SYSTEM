@@ -16,6 +16,7 @@ class _LogInState extends State<LogIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 24),
           child: Column(
@@ -24,7 +25,9 @@ class _LogInState extends State<LogIn> {
             children: [
               Container(
                 height: 60,
-                child: Image.asset('Images/car_logo.png'),),
+                child: Hero(
+                  tag: Text('hero'),
+                  child: Image.asset('Images/car_logo.png')),),
                 SizedBox(height: 20,),
               TypewriterAnimatedTextKit(
               text: [
@@ -90,14 +93,14 @@ class _LogInState extends State<LogIn> {
               ],
               ),
               SizedBox(height: 30,),
-
+    
               InkWell(
                 onTap: (){},
                 child: Container(
                   decoration: BoxDecoration(
                      borderRadius: BorderRadius.circular(32),
                      border: Border.all(
-                      color: Colors.black45,
+                      color: Colors.lightBlueAccent,
                      )
                   ),
                   child: Row(
@@ -106,7 +109,7 @@ class _LogInState extends State<LogIn> {
                          Padding(
                           padding: EdgeInsets.only(right: 8),
                           child: Image.asset('Images/google.png',width: 40,height: 40,)),
-                         Text('sign in with google',style: TextStyle(color: Colors.black45,fontSize: 25),),
+                         Text('sign in with google',style: TextStyle(color: Colors.black45,fontSize: 18),),
                          
                    ],
                    ),
