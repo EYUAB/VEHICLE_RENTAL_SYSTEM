@@ -16,9 +16,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.red,
           title: Text('Vehicle Rental System'),
@@ -117,7 +115,6 @@ class _HomePageState extends State<HomePage> {
                  ),
             ],
           ),
-        ),
         ),
     );
   }
