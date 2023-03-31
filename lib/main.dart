@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:vehicle_rental_system/Components/horizontalScrol.dart';
 import 'Components/vehicle_lists.dart';
 void main(List<String> args) {
+   WidgetsFlutterBinding.ensureInitialized();
   runApp(HomePage());
 }
 class HomePage extends StatefulWidget {
@@ -16,9 +17,12 @@ class _HomePageState extends State<HomePage> {
   Widget carousel_image=  Container(
     height: 200,
     child: Carousel(
+      dotColor: Colors.black,
+      dotIncreasedColor: Colors.black,
       boxFit:  BoxFit.cover,
       autoplay: true,
       indicatorBgPadding: 4,
+      dotBgColor: Colors.transparent,
        images: const [
        AssetImage('Images/bus.png'),
        AssetImage('Images/car1.png'),
