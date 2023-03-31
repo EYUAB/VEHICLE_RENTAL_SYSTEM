@@ -20,6 +20,7 @@ class _VehicleDetailState extends State<VehicleDetail> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.red,
@@ -114,7 +115,7 @@ class _VehicleDetailState extends State<VehicleDetail> {
         ),
      ExpansionTile(
       title: Text('Vehicel Detail',
-     style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold,color: Colors.black),
+     style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.black),
      ),
     leading: Icon(Icons.car_crash, color: Colors.blue,),
     children: [
@@ -143,6 +144,22 @@ ListTile(leading: Icon(
 ),
 title: Text("Air conditioning"),
 ),
+    ],
+     ),
+     ExpansionTile(
+      title: Text('Good to know',
+     style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.black),
+     ),
+    leading: Icon(Icons.car_crash, color: Colors.blue,),
+    children: [
+      ListTile(
+        leading: Text("Mileage", style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold,color: Colors.black),),
+        title: Text("Unlimited. Drive as much as you need", style: TextStyle(fontSize: 13,fontWeight: FontWeight.w400,color: Colors.black),),
+      ),
+       ListTile(
+        leading: Text("Driver's age", style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold,color: Colors.black),),
+        title: Text("The drive must be over 25 to drive the choosen vehicle.", style: TextStyle(fontSize: 13,fontWeight: FontWeight.w400,color: Colors.black),),
+      ),
     ],
      ),
 
