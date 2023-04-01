@@ -28,7 +28,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: AnimatedSplashScreen(
-                  animationDuration: Duration(seconds: 2),
+                  animationDuration: Duration(seconds: 4),
                   splashIconSize: 400,
                   splashTransition: SplashTransition.scaleTransition,
                   splash: Column(
