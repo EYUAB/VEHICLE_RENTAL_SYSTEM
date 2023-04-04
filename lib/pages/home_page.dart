@@ -1,12 +1,13 @@
-import 'package:carousel_pro/carousel_pro.dart';
-import 'package:flutter/material.dart';
-import 'package:vehicle_rental_system/Components/carousel.dart';
-import 'package:vehicle_rental_system/Components/horizontalScrol.dart';
-import 'package:vehicle_rental_system/Components/logIn.dart';
-import 'package:vehicle_rental_system/Components/vehicle_lists.dart';
+
+
+
+
 import 'package:firebase_auth/firebase_auth.dart';
-
-
+import 'package:flutter/material.dart';
+import 'package:vehicle_rental_system/components/carousel.dart';
+import 'package:vehicle_rental_system/components/horizontalScrol.dart';
+import 'package:vehicle_rental_system/components/vehicle_lists.dart';
+import 'package:vehicle_rental_system/pages/logIn.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -21,7 +22,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.red,
+          backgroundColor: Colors.lightBlueAccent,
           title: Text('Vehicle Rental System'),
           actions: [
             IconButton(onPressed: null, icon: Icon(Icons.search,color: Colors.white,),),

@@ -1,10 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:vehicle_rental_system/Components/logIn.dart';
-
+import 'package:vehicle_rental_system/pages/logIn.dart';
 
 class SplashScreenWidget extends StatefulWidget {
   const SplashScreenWidget({super.key});
@@ -18,6 +15,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -51,7 +49,8 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                   ],
                 )
                 
-                , nextScreen: LogIn()),
+                , nextScreen: LogIn(),
+                ),
               ),
             ),
         ],

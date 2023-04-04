@@ -1,13 +1,14 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:flutter/material.dart';
-import 'package:vehicle_rental_system/Components/logIn.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'buttons.dart';
-import 'constants.dart';
-import 'home_page.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
 
+import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:vehicle_rental_system/components/buttons.dart';
+import 'package:vehicle_rental_system/components/constants.dart';
+import 'package:vehicle_rental_system/pages/home_page.dart';
+import 'package:vehicle_rental_system/pages/logIn.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 class RegistrationPage extends StatefulWidget {
   const RegistrationPage({super.key});
 
@@ -19,7 +20,10 @@ class _RegistrationPageState extends State<RegistrationPage> {
   final _formKey=GlobalKey<FormState>();
    late String email;
    late String password;
+   late String userName;
+   late String phoneNumber;
    final _auth=FirebaseAuth.instance;
+   final _firestore= FirebaseFirestore.instance;
    bool showSpinner=false;
    final _userNameTextEditingController=TextEditingController();
    final _phoneNumbetrTextEditingController=TextEditingController();
@@ -65,6 +69,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     keyboardType: TextInputType.name,
                     onChanged: (value) {
                       //Do something with the user input.
+                      userName=value;
                       
                     },
                     decoration: Constants.kInputDecoration.copyWith(hintText: 'Enter your full_name'),
@@ -83,6 +88,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     keyboardType: TextInputType.number,
                     onChanged: (value) {
                       //Do something with the user input.
+                      phoneNumber=value;
                       
                     },
                     decoration: Constants.kInputDecoration.copyWith(hintText: 'Enter your phone number'),
@@ -150,6 +156,12 @@ class _RegistrationPageState extends State<RegistrationPage> {
                          try{
                   final newUser = await _auth.createUserWithEmailAndPassword(email: email, password: password);
                  if(newUser != null){
+                  _firestore.collection('Registration').add(
+                    {
+                      'userName': userName,
+                      'phoneNumber': phoneNumber,
+                    }
+                  );
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage())); 
                  }
                  setState(() {

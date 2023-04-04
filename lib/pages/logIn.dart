@@ -1,11 +1,13 @@
+
+
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:flutter/material.dart';
-import 'package:vehicle_rental_system/Components/Registration.dart';
-import 'package:vehicle_rental_system/Components/buttons.dart';
-import 'package:vehicle_rental_system/Components/constants.dart';
-import 'package:vehicle_rental_system/Components/home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:vehicle_rental_system/components/buttons.dart';
+import 'package:vehicle_rental_system/components/constants.dart';
+import 'package:vehicle_rental_system/pages/Registration.dart';
+import 'package:vehicle_rental_system/pages/home_page.dart';
 
 class LogIn extends StatefulWidget {
   const LogIn({super.key});
