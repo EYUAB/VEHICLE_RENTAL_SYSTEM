@@ -16,11 +16,15 @@ class RegistrationPage extends StatefulWidget {
 }
 
 class _RegistrationPageState extends State<RegistrationPage> {
-    final _formKey=GlobalKey<FormState>();
+  final _formKey=GlobalKey<FormState>();
    late String email;
    late String password;
    final _auth=FirebaseAuth.instance;
    bool showSpinner=false;
+   final _userNameTextEditingController=TextEditingController();
+   final _phoneNumbetrTextEditingController=TextEditingController();
+   final _emailTextEditingController=TextEditingController();
+   final _passwordTextEditingController=TextEditingController();
  
 
   @override
@@ -56,6 +60,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     height: 48.0,
                   ),
                   TextFormField(
+                    controller: _userNameTextEditingController,
                     textAlign: TextAlign.center,
                     keyboardType: TextInputType.name,
                     onChanged: (value) {
@@ -73,6 +78,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   ),
                   SizedBox(height: 8,),
                   TextFormField(
+                    controller: _phoneNumbetrTextEditingController,
                     textAlign: TextAlign.center,
                     keyboardType: TextInputType.number,
                     onChanged: (value) {
@@ -90,6 +96,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   ),
                   SizedBox(height: 8,),
                    TextFormField(
+                    controller: _emailTextEditingController,
                     textAlign: TextAlign.center,
                     keyboardType: TextInputType.emailAddress,
                     onChanged: (value) {
@@ -108,6 +115,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   ),
                   SizedBox(height: 8,),
                     TextFormField(
+                      controller: _passwordTextEditingController,
                     textAlign: TextAlign.center,
                     obscureText: true,
                     onChanged: (value) {
@@ -129,6 +137,10 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   SizedBox(height: 24,),
                   Buttons(buttonType: 'Register', onPressed: () async{
                       if(_formKey.currentState!.validate()){
+                        _userNameTextEditingController.clear();
+                        _passwordTextEditingController.clear();
+                        _emailTextEditingController.clear();
+                        _passwordTextEditingController.clear;
                         setState(() {
                           showSpinner=true;
                         });

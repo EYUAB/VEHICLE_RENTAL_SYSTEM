@@ -15,7 +15,8 @@ class LogIn extends StatefulWidget {
 }
 
 class _LogInState extends State<LogIn> {
-  final controller=TextEditingController();
+ final TextEditingController _emailController = TextEditingController();
+ final TextEditingController _passwordController = TextEditingController();
   final _formKey=GlobalKey<FormState>();
   final _auth=FirebaseAuth.instance;
   late String email;
@@ -70,6 +71,7 @@ class _LogInState extends State<LogIn> {
                       else return null;
                     },
                     decoration: Constants.kInputDecoration.copyWith(hintText: 'Enter your email'),
+                    controller: _emailController,
                   ),
                   SizedBox(height: 15,),
                     TextFormField(
@@ -91,10 +93,13 @@ class _LogInState extends State<LogIn> {
                       else return null;
                     },
                     decoration: Constants.kInputDecoration.copyWith(hintText: 'Enter your password'),
+                    controller: _passwordController,
                   ),
                   SizedBox(height: 24,),
                   Buttons(buttonType: 'Log in', onPressed: ()async{
                     if(_formKey.currentState!.validate()){
+                      _emailController.clear();
+                      _passwordController.clear();
                       setState(() {
                       showSpinner=true;
                     });
@@ -110,8 +115,7 @@ class _LogInState extends State<LogIn> {
                     });
         
                     }
-                    catch(e){}
-                    controller.clear();                  
+                    catch(e){}               
                     }               
                   }, color: Colors.lightBlueAccent),
                   Row(
