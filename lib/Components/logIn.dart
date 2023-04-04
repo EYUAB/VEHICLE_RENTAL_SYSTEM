@@ -14,6 +14,7 @@ class LogIn extends StatefulWidget {
 }
 
 class _LogInState extends State<LogIn> {
+  final controller=TextEditingController();
   final _formKey=GlobalKey<FormState>();
   final _auth=FirebaseAuth.instance;
   late String email;
@@ -100,7 +101,7 @@ class _LogInState extends State<LogIn> {
 
                   }
                   catch(e){}
-                  
+                  controller.clear();                  
                   }               
                 }, color: Colors.lightBlueAccent),
                 Row(

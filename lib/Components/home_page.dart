@@ -2,7 +2,9 @@ import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:vehicle_rental_system/Components/carousel.dart';
 import 'package:vehicle_rental_system/Components/horizontalScrol.dart';
+import 'package:vehicle_rental_system/Components/logIn.dart';
 import 'package:vehicle_rental_system/Components/vehicle_lists.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 
 
@@ -14,6 +16,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final _auth=FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,10 +38,13 @@ class _HomePageState extends State<HomePage> {
               ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () async{
+                  await _auth.signOut();
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>LogIn()));
+                },
                 child: ListTile(
-                leading: Icon(Icons.home),
-                title: Text('Home Page'),
+                leading: Icon(Icons.close,color: Colors.lightBlueAccent,),
+                title: Text('Sign out',style: TextStyle(color: Colors.black45),),
                 ),
               ),
                InkWell(
