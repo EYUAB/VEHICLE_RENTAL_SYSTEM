@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 
 class VehicleDetail extends StatefulWidget {
@@ -23,7 +25,7 @@ class _VehicleDetailState extends State<VehicleDetail> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.red,
+          backgroundColor: Colors.lightBlueAccent,
           title: Text('Vehicle Rental System'),
           actions: [
             IconButton(onPressed: null, icon: Icon(Icons.search,color: Colors.white,),),

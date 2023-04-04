@@ -1,5 +1,7 @@
+
+
 import 'package:flutter/material.dart';
-import 'package:vehicle_rental_system/Components/vihicle_detail.dart';
+import 'package:vehicle_rental_system/pages/vihicle_detail.dart';
 
 class AvailableVehicleLists extends StatefulWidget {
   const AvailableVehicleLists({super.key});
