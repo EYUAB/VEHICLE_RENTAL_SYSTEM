@@ -1,9 +1,8 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:vehicle_rental_system/Components/logIn.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'buttons.dart';
 import 'constants.dart';
 import 'home_page.dart';
@@ -17,6 +16,9 @@ class RegistrationPage extends StatefulWidget {
 
 class _RegistrationPageState extends State<RegistrationPage> {
     final _formKey=GlobalKey<FormState>();
+   late String email;
+   late String password;
+   final _auth=FirebaseAuth.instance;
  
 
   @override
@@ -88,6 +90,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   keyboardType: TextInputType.emailAddress,
                   onChanged: (value) {
                     //Do something with the user input.
+                    email=value;
                     
                   },
                   decoration: Constants.kInputDecoration.copyWith(hintText: 'Enter your email'),
@@ -105,7 +108,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   obscureText: true,
                   onChanged: (value) {
                     //Do something with the user input.
-                    
+                    password=value;
                   },
                   decoration: Constants.kInputDecoration.copyWith(hintText: 'Enter your password'),
                    validator: (value){
@@ -120,13 +123,24 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   },
                 ),
                 SizedBox(height: 24,),
-                Buttons(buttonType: 'Register', onPressed: (){
+                Buttons(buttonType: 'Register', onPressed: () async{
                     if(_formKey.currentState!.validate()){
                     final snackBar=SnackBar(content: Text('Submitting form'));
                     ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));  
-                  }
-                }, color: Colors.blueAccent),
+                    // Registering user with email and password
+                       try{
+                final newUser = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+               if(newUser != null){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage())); 
+               }
+          
+               }
+               catch(e){
+                print(e);
+               }
+                  } 
+                }, 
+                color: Colors.blueAccent),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
