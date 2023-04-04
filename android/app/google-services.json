@@ -1,20 +1,20 @@
 {
   "project_info": {
-    "project_number": "373291450404",
-    "project_id": "vehicle-rental-system-46c48",
-    "storage_bucket": "vehicle-rental-system-46c48.appspot.com"
+    "project_number": "423425728959",
+    "project_id": "vehicle-rental-e99a5",
+    "storage_bucket": "vehicle-rental-e99a5.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:373291450404:android:cf01fa6d3e68455e1558b1",
+        "mobilesdk_app_id": "1:423425728959:android:ce443e605c95e76553c10a",
         "android_client_info": {
           "package_name": "com.example.vehicle_rental_system"
         }
       },
       "oauth_client": [
         {
-          "client_id": "373291450404-e0laugqkltbuqvatosrvdavsdfmlmflt.apps.googleusercontent.com",
+          "client_id": "423425728959-b367kd4enr6kljjen48ktiefl6qv078b.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.vehicle_rental_system",
@@ -22,20 +22,20 @@
           }
         },
         {
-          "client_id": "373291450404-6hc9efgh8otrv246s795jcqtab9s2uj2.apps.googleusercontent.com",
+          "client_id": "423425728959-delrnttn1ju0a8cul2cdd80lfkqhmt5t.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCoqkJ4O0HLOGe78BPhonqMdyCJQjgSeSU"
+          "current_key": "AIzaSyB2j74MBxQJqwtAL1brov_7JxalWZAIKRI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "373291450404-6hc9efgh8otrv246s795jcqtab9s2uj2.apps.googleusercontent.com",
+              "client_id": "423425728959-delrnttn1ju0a8cul2cdd80lfkqhmt5t.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
