@@ -4,6 +4,7 @@ import 'package:vehicle_rental_system/Components/Registration.dart';
 import 'package:vehicle_rental_system/Components/buttons.dart';
 import 'package:vehicle_rental_system/Components/constants.dart';
 import 'package:vehicle_rental_system/Components/home_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class LogIn extends StatefulWidget {
   const LogIn({super.key});
@@ -14,6 +15,9 @@ class LogIn extends StatefulWidget {
 
 class _LogInState extends State<LogIn> {
   final _formKey=GlobalKey<FormState>();
+  final _auth=FirebaseAuth.instance;
+  late String email;
+  late String password;
 
   @override
   Widget build(BuildContext context) {
@@ -50,11 +54,12 @@ class _LogInState extends State<LogIn> {
                   keyboardType: TextInputType.emailAddress,
                   onChanged: (value) {
                     //Do something with the user input.
+                    email=value;
                     
                   },
                   validator: (value){
-                    if(value!.isEmpty || !RegExp(r'^[A-Z a-z]+$').hasMatch(value!)) {
-                      return 'Enter correct name';
+                      if(value!.isEmpty || !RegExp(r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$').hasMatch(value!)) {
+                      return 'Enter correct email';
 
                     }
                     else return null;
@@ -67,6 +72,7 @@ class _LogInState extends State<LogIn> {
                   obscureText: true,
                   onChanged: (value) {
                     //Do something with the user input.
+                    password=value;
                     
                   },
                    validator: (value){
@@ -82,11 +88,19 @@ class _LogInState extends State<LogIn> {
                   decoration: Constants.kInputDecoration.copyWith(hintText: 'Enter your password'),
                 ),
                 SizedBox(height: 24,),
-                Buttons(buttonType: 'Log in', onPressed: (){
+                Buttons(buttonType: 'Log in', onPressed: ()async{
                   if(_formKey.currentState!.validate()){
                     final snackBar=SnackBar(content: Text('Authenticating'));
                     ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));  
+                  try{
+                    final user= await _auth.signInWithEmailAndPassword(email: email, password: password);
+                  if(user !=null){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
+                  }
+
+                  }
+                  catch(e){}
+                  
                   }               
                 }, color: Colors.lightBlueAccent),
                 Row(
